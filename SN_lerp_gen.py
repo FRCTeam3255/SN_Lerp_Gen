@@ -13,7 +13,7 @@ def build_sheet_url(doc_id, sheet_id):
 
 # %%
 x_col = "Actual Distance (limelight to hub center inches)"
-y_col = "Flywheel RPM"
+y_col = "Hood Angle (Degrees)"
 
 # %%
 csv = pd.read_csv(
@@ -23,7 +23,7 @@ csv = pd.read_csv(
 )
 
 # %%
-csv = csv[[x_col, y_col]].dropna()
+csv = csv[[x_col, y_col]].dropna().sort_values(x_col)
 
 # %%
 java_code = csv.apply(
